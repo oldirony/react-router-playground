@@ -1,7 +1,7 @@
 {
-  "name": "redux-simple-starter",
+  "name": "playground-react-router",
   "version": "1.0.0",
-  "description": "Simple starter package for Redux with React and Babel support",
+  "description": "Playground app for react router",
   "main": "index.js",
   "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
   "scripts": {
