@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import { fetchPosts } from '../actions/';
+import { Link } from 'react-router';
 
 class PostIndex extends Component {
     componentWillMount() {
@@ -9,10 +9,17 @@ class PostIndex extends Component {
     }
 
     render() {
-        return <ul>
-            <li>post 1</li>
-            <li>post 2</li>
-        </ul>
+        return <div>
+            <div className="text-xs-right">
+                <Link to="/posts/new" className="btn btn-primary" >
+                    Add a post
+                </Link>
+            </div>
+            <ul>
+                <li>post 1</li>
+                <li>post 2</li>
+            </ul>
+        </div>
     }
 }
 
