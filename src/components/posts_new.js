@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { createPost } from '../actions'
 
 class PostsNew extends Component {
 
     render() {
-        const { fields : {title, categories, content }, onSubmit } = this.props;
+        const { fields : {title, categories, content }, handleSubmit } = this.props;
 
-        return <form onSubmit={onSubmit}>
+        return <form onSubmit={handleSubmit(this.props.createPost)}>
             <h3>Create a new post</h3>
             <div className="form-group">
                 <label htmlFor="title">Title</label>
@@ -18,7 +19,7 @@ class PostsNew extends Component {
                 <input type="text" id="categories" className="form-control" {...categories} />
             </div>
             <div className="form-group">
-                <label htmlFor="content">Title</label>
+                <label htmlFor="content">Content</label>
                 <textarea className="form-control" id="content" {...content}/>
             </div>
 
@@ -29,6 +30,6 @@ class PostsNew extends Component {
 
 
 export default reduxForm({
-    form: 'PostsNewForm',
-    fields : ['title', 'categories', 'content']
-})(PostsNew);
+        form: 'PostsNewForm',
+        fields : ['title', 'categories', 'content']
+    }, null, {createPost})(PostsNew);
